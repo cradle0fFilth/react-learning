@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 
 const Person = (props) => {
   return (
@@ -13,6 +13,10 @@ const Person = (props) => {
 
 const App = () => {
   const [counter,setCounter] = useState(0);
+  useEffect(()=>{
+    alert("you clicked me"+ counter);
+  },[counter]); //everytime counter changes, useEffect will be called
+
   return (
     <div className="App">
       <button onClick={()=>{setCounter(prevCount=>prevCount-1)}}>-</button>
